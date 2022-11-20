@@ -25,7 +25,7 @@ class EventsPageState extends State<EventsPage> {
       appBar: AppBar(
         title: Text('Events'),
       ),
-      body: getEventListView(),
+      body: Center(child: getEventListView()),
     );
   }
 

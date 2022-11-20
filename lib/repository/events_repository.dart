@@ -56,7 +56,6 @@ class EventsRepository {
     return result;
   }
 
-  // Insert Operation: Insert a todo object to database
   Future<int> insertEventData(EventData eventData) async {
     Database db = await this.database;
     var result = await db.insert(eventTable, eventData.toMap());

@@ -33,7 +33,8 @@ class NavigationDrawerWidget extends StatelessWidget {
         child: ListTile(
           selected: isSelected,
           selectedTileColor: Colors.white24,
-          title: Text(text, style: TextStyle(color: textColor, fontSize: 20)),
+          title: Text(text,
+              style: const TextStyle(color: textColor, fontSize: 20)),
           onTap: () => selectItem(context, item),
         ));
   }
