@@ -37,20 +37,11 @@ class EventsPageState extends State<EventsPage> {
               color: Colors.white,
               elevation: 2.0,
               child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.amber,
-                  child: Text(getFirstLetter(_eventDataList[position].title),
-                      style: const TextStyle(fontWeight: FontWeight.bold)),
-                ),
                 title: Text(_eventDataList[position].title,
                     style: const TextStyle(fontWeight: FontWeight.bold)),
                 subtitle: Text(_eventDataList[position].description),
               ));
         });
-  }
-
-  getFirstLetter(String title) {
-    return title.substring(0, 2);
   }
 
   void updateListView() {
@@ -61,6 +52,18 @@ class EventsPageState extends State<EventsPage> {
         setState(() {
           _eventDataList = eventList;
           count = eventList.length;
+          if (count == 0) {
+            _eventDataList.add(EventData(
+                'You haven\'t had any incidents yet! Yay!',
+                '',
+                '',
+                0,
+                0,
+                0,
+                0,
+                0));
+            count = 1;
+          }
         });
       });
     });
