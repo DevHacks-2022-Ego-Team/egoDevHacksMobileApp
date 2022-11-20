@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:safety_driving/pages/devices_page.dart';
 import 'package:safety_driving/pages/events_page.dart';
@@ -12,7 +14,13 @@ Future main() async {
   await SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-  runApp(MyApp());
+  initSettings().then((_) {
+    runApp(MyApp());
+  });
+}
+
+Future<void> initSettings() async {
+  await Settings.init();
 }
 
 class MyApp extends StatelessWidget {
